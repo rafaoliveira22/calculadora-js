@@ -1,0 +1,123 @@
+:root{
+    --color-first:#13293D;
+    --color-second:#006494;
+    --color-third:#247BA0;
+    --color-fourth:#1B98E0;
+    --color-fifth:#E8F1F2;
+}
+
+*{
+    margin:0;
+    border:0;
+    padding:0;
+    box-sizing:border-box;
+
+    font-family:'Poppins';
+    font-weight:bold;
+}
+
+body{
+    background-color:var(--color-fourth);
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.container-calculadora{
+    width:550px;
+    height:700px;
+    background-color:#000;
+    border-radius:20px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.container-calculadora-btn-line-1{
+    border-top:1px solid #fff;
+    padding-top:10px;
+}
+
+.container-calculadora-resultado{
+    width:90%;
+    height:120px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    border-radius:10px;
+    color:var(--color-fifth)
+}
+
+.resultado{
+    padding:20px;
+    font-size:2rem;
+}
+button{
+    width:120px;
+    height:80px;
+
+    background-color:var(--color-first);
+    color:#fff;
+    cursor:pointer;
+    font-size:2rem;
+}
+
+button:hover{
+    background-color:var(--color-fifth);
+    color:var(--color-first);
+    transition:0.3s;
+}
+
+.btn-two{
+    width:240px;
+}
+
+.btn-igual{
+    background-color:var(--color-third);
+}
+
+.btn-limpar{
+    background-color:var(--color-fourth);
+}
+.btn-operador{
+    background-color:var(--color-second);
+}
+
+@media(max-width:770px) {
+    .container-calculadora{
+        width:320px;
+        height:400px;
+        background-color:#000;
+        border-radius:20px;
+    }
+
+    button{
+        width:60px;
+        height:30px;
+        font-size:1rem;
+    }
+
+    .btn-two{
+        width:122px;
+    }
+
+    .container-calculadora-resultado{
+        width:80%;
+        height:100px;
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        border-radius:10px;
+        color:var(--color-fifth)
+    }
+    
+    .resultado{
+        padding:20px;
+        font-size:1.5rem;
+    }
+}
