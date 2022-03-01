@@ -5,49 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <title>Calculadora</title>
 </head>
 <body>
-        <div class="container-calculadora">
+    <div class="container">
+        <section class="btn-cor">
+            <button id="btn-branco" class="btn-branco" title="mudar cor de fundo da calculadora para branco">
+                <img src="assets/img/sun.svg" alt="">
+            </button>
+
+            <button id="btn-preto" class="btn-preto" title="mudar cor de fundo da calculadora para preto">
+                <img src="assets/img/moon.svg" alt="" class="svg-moon">
+            </button>
+        </section>
+
+        <div class="container-calculadora" id="calculadora">
             <section class="container-calculadora-resultado">
-                <output class="resultado">
-                    452 + 1
-                </output>
+                <output class="resultado" id="resultado"/>
             </section>
 
-            <section class="container-calculadora-btn-line-1">
-                <button class="btn-limpar btn-two">AC</button>
-                <button>DEL</button>
-                <button class="btn-operador">/</button>
+            <section class="container-calculadora-btn-line-1" id="btn-line-1">
+                <button class="btn-limpar btn-two" onclick="limpar()">AC</button>
+                <button onclick="apagar()">DEL</button>
+                <button class="btn-operador" onclick="insert('/')">/</button>
             </section>
 
             <section class="container-calculadora-btn-line-2">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button class="btn-operador">*</button>
+                <button onclick="insert('7')">7</button>
+                <button onclick="insert('8')">8</button>
+                <button onclick="insert('9')">9</button>
+                <button class="btn-operador" onclick="insert('*')">*</button>
             </section>
 
             <section class="container-calculadora-btn-line-3">
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button class="btn-operador">-</button>
+                <button onclick="insert('4')">4</button>
+                <button onclick="insert('5')">5</button>
+                <button onclick="insert('6')">6</button>
+                <button class="btn-operador" onclick="insert('-')">-</button>
             </section>
 
             <section class="container-calculadora-btn-line-4">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button class="btn-operador">+</button>
+                <button onclick="insert('1')">1</button>
+                <button onclick="insert('2')">2</button>
+                <button onclick="insert('3')">3</button>
+                <button class="btn-operador" onclick="insert('+')">+</button>
             </section>
                
             <section class="container-calculadora-btn-line-5">
-                <button>0</button>
-                <button>.</button>
-                <button class="btn-igual btn-two">=</button>
+                <button onclick="insert('0')">0</button>
+                <button onclick="insert('.')">.</button>
+                <button class="btn-igual btn-two" onclick="calcular()">=</button>
             </section>
         </div>
+    </div>
+        
+        <footer>
+            <small>by Rafa Oliveira  ×͜ × </small>
+        </footer>
+
+
+        <script>
+            var calculadora = document.querySelector('div#calculadora')
+            var resultado = document.querySelector('output#resultado')
+            var btnLine1 = document.querySelector('section#btn-line-1')
+
+            var btnBranco =  document.querySelector('button#btn-branco')
+            btnBranco.addEventListener('click', mudarFundoParaBranco)
+
+            var btnPreto =  document.querySelector('button#btn-preto')
+            btnPreto.addEventListener('click', mudarFundoParaPreto)
+
+            // mudar background da calculadora para branco
+            function mudarFundoParaBranco(){
+                calculadora.style.background = '#E8F1F2'
+                resultado.style.color = '#000'
+                btnLine1.style.borderTop = 'solid 1px #000'
+            }
+
+            // mudar background da calculadora para preto
+            function mudarFundoParaPreto(){
+                calculadora.style.background = '#000'
+                resultado.style.color = '#E8F1F2'
+                btnLine1.style.borderTop = 'solid 1px #fff'
+            }
+            // inserir numero no output da calc
+            function insert(num){
+                var numero = resultado.innerHTML
+                resultado.innerHTML = numero + num;
+            }
+
+            function limpar(){
+                resultado.innerHTML = ""
+            }
+
+            function apagar(){
+                var resultado = document.querySelector('output#resultado').innerHTML
+                document.querySelector('output#resultado').innerHTML = resultado.substring(0, resultado.length -1); 
+            }
+
+            function calcular(){
+                var resultado = document.querySelector('output#resultado').innerHTML
+                if(resultado){
+                    document.querySelector('output#resultado').innerHTML = eval(resultado)
+                } else{
+                    document.querySelector('output#resultado').innerHTML = "Nada para calcular :("
+                }
+                
+            }
+        </script>
 </body>
 </html>

@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 :root{
     --color-first:#13293D;
     --color-second:#006494;
     --color-third:#247BA0;
     --color-fourth:#1B98E0;
     --color-fifth:#E8F1F2;
+
+    --font:'Roboto';
 }
 
 *{
@@ -11,31 +15,62 @@
     border:0;
     padding:0;
     box-sizing:border-box;
-
-    font-family:'Poppins';
+    font-family:var(--font);
     font-weight:bold;
 }
 
 body{
     background-color:var(--color-fourth);
     min-height:100vh;
-
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
 }
 
+.container{
+    display:flex;
+    flex-direction:row-reverse;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.container > .btn-cor{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.container > .btn-cor > button{
+    border-radius:100%;
+    border:none;
+    width:32px;
+    height:32px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.container > .btn-cor > .btn-preto{
+    background-color:#000;
+}
+
+.container > .btn-cor > .btn-branco{
+    background-color:#fff;
+}
+
 .container-calculadora{
     width:550px;
-    height:700px;
-    background-color:#000;
+    height:650px;
     border-radius:20px;
-
+    background-color:#000;
     display:flex;
     flex-direction:column;
     justify-content:space-around;
     align-items:center;
+    padding:10px;
 }
 
 .container-calculadora-btn-line-1{
@@ -45,7 +80,7 @@ body{
 
 .container-calculadora-resultado{
     width:90%;
-    height:120px;
+    height:100px;
     display:flex;
     align-items:center;
     justify-content:flex-end;
@@ -88,22 +123,59 @@ button:hover{
     background-color:var(--color-second);
 }
 
+footer{
+    color:var(--color-fifth);
+    margin-top:10px;
+}
 @media(max-width:770px) {
     .container-calculadora{
         width:320px;
-        height:400px;
-        background-color:#000;
+        height:500px;
         border-radius:20px;
     }
 
     button{
         width:60px;
-        height:30px;
+        height:50px;
         font-size:1rem;
     }
 
     .btn-two{
         width:122px;
+    }
+
+    .container-calculadora-resultado{
+        width:80%;
+        height:100px;
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        border-radius:10px;
+        color:var(--color-fifth)
+    }
+    
+    .resultado{
+        padding:20px;
+        font-size:1.5rem;
+    }
+}
+
+@media(max-height:600px){
+    .container-calculadora{
+        width:500px;
+        height:500px;
+        background-color:#000;
+        border-radius:20px;
+    }
+
+    button{
+        width:100px;
+        height:50px;
+        font-size:1rem;
+    }
+
+    .btn-two{
+        width:200px;
     }
 
     .container-calculadora-resultado{
